@@ -1,0 +1,12 @@
+.gameover(ng-show="game.status == 'over'")
+
+  h3 Game Over
+  h5
+    span(ng-show="game.winner.piece == player.piece && !game.tie")
+      | Congrats {{game.winner.name}}, you've won!
+    span(ng-hide="game.winner.piece == player.piece")
+      | You have lost to the mighty {{game.winner.name}}
+    span(ng-show="game.tie") Is A Tie!
+  br
+  br
+  a(href="#", ng-click="playAgain()") Play Again?

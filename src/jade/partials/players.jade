@@ -1,0 +1,17 @@
+#players.col-lg-3.col-md-3.col-sm-4.col-xs-12
+  .row {{game.activePlayer.name}} with {{game.activePlayer.piece}} {{game.status}}
+  .row
+    .col-lg-12
+      a(href="#", ng-click="cheat()") Cheat
+      | &nbsp; {{cheatPosition}}
+
+  .row.cont
+    .col-lg-12
+      ul.list-group.list
+        li.list-group-item(ng-repeat="player in game.players") {{player.name}}
+          br
+          small playing as {{player.piece}}
+          span(ng-show="player.human") HUMAN
+          span(ng-show="game.activePlayer.piece == player.piece") *
+          span(ng-show="game.winner.piece == player.piece") WON
+#about

@@ -1,0 +1,148 @@
+#overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+
+  -webkit-transition: all 0.4s linear;
+  -moz-transition: all 0.4s linear;
+  -ms-transition: all 0.4s linear;
+  -o-transition: all 0.4s linear;
+  transition: all 0.4s linear;
+
+  .newgame {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -o-transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+
+    padding:0;
+    margin:0;
+
+    width: 500px;
+    height: 350px;
+
+    -webkit-box-shadow: 0 0 7px 0 #222;
+    box-shadow: 0 0 7px 0 #242424;
+
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    border: solid 5px #3fb0a9;
+
+    // padding: 10px;
+
+    background-color: #fff;
+
+    overflow: hidden;
+
+    div.questions {
+
+      // padding:0;
+      // margin:0;
+      // margin:15px;
+      padding: 10px;
+
+      > div > div {
+        position: absolute;
+
+        text-align: center;
+        font-size: 1.1em;
+        color: #6a6a6a;
+        width: 100%;
+
+        -webkit-transition:0.4s linear all;
+        transition:0.4s linear all;
+        opacity: 1;
+        // left: 7px;
+      }
+
+
+
+      > div > div.ng-hide {
+        // left: -500px;
+        opacity: 0;
+      }
+
+      .welcome {
+        .action {
+          // padding: 25px;
+          margin-top: 15px;
+        }
+
+      }
+
+      .player-name {
+
+
+
+      }
+
+      .opponent {
+
+        .battle-name {
+          font-size: 1.6em;
+          padding: 20px;
+
+          .vs {
+            font-size: 0.8em;
+            color: #999;
+          }
+        }
+
+        .against-question {
+          padding-bottom: 15px;
+        }
+      }
+    }
+
+    @media screen and (max-width: @screen-sm-min) {
+      width: 90%;
+      height: 350px;
+    }
+  }
+
+  .gameover {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -o-transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+
+    padding:0;
+    margin:0;
+
+    width: 500px;
+    height: 350px;
+
+    -webkit-box-shadow: 0 0 7px 0 #222;
+    box-shadow: 0 0 7px 0 #242424;
+
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    border: solid 5px #3fb0a9;
+
+    background-color: #fff;
+
+    overflow: hidden;
+
+    text-align: center;
+  }
+}
+
+#overlay.ng-hide {
+  opacity: 0;
+}
+

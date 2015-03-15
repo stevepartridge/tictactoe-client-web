@@ -1,0 +1,10 @@
+{
+  "directory": "src/bower_components",
+  "registry": "http://bower.herokuapp.com",
+  "strict-ssl": false,
+  "storage": {
+    "packages": "src/.bower-cache",
+    "registry": "src/.bower-registry"
+  },
+  "tmp": ".bower-tmp"
+}

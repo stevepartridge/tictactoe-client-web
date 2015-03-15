@@ -1,0 +1,196 @@
+
+
+#board {
+  background-color: #555;
+    // position: absolute;
+  height: 100%;
+
+  .tiles-cont {
+    width: 100%;
+    height: 100%;
+    // width: 100%;
+    position: relative;
+
+
+    .tiles {
+
+      position: absolute;
+      top: 50%;
+      left: 50%;
+
+      -moz-transform: translateX(-50%) translateY(-50%);
+      -webkit-transform: translateX(-50%) translateY(-50%);
+      -o-transform: translateX(-50%) translateY(-50%);
+      -ms-transform:  translateX(-50%) translateY(-50%);
+      transform:  translateX(-50%) translateY(-50%);
+
+      height: 500px;
+      width: 600px;
+
+      .tile {
+        display: table;
+        margin: 0;
+        padding: 0;
+
+        background-color: #edf3f5;
+        text-align: center;
+
+        -webkit-box-shadow: 0 0 3px 0 #242424;
+        box-shadow: 0 0 3px 0 #242424;
+
+        -webkit-transition: all 0.4s linear;
+        -moz-transition: all 0.4s linear;
+        -ms-transition: all 0.4s linear;
+        -o-transition: all 0.4s linear;
+        transition: all 0.4s linear;
+
+        .square {
+          color: #3fb0a9;
+          height: 100%;
+          // line-height: 100%;
+          font-size: 6em;
+          display: table-cell;
+          vertical-align: middle;
+
+          .x, .o {
+            -webkit-transition:0.4s linear all;
+            transition:0.4s linear all;
+            opacity: 1;
+          }
+
+          .x.ng-hide, .o.ng-hide {
+            opacity: 0;
+          }
+
+          .placed {
+            display: block;
+          }
+
+          @media screen and (max-width: @screen-sm-min) {
+            font-size: 4em;
+          }
+
+        }
+        .square.populated {
+          color: #333;
+        }
+
+      }
+      .tile.cheating {
+        -webkit-box-shadow: 0 1px 5px 0 #f00;
+        box-shadow: 0 1px 5px 0 #f00;
+      }
+
+      .tile:hover {
+        cursor: pointer;
+        background-color: #fff;
+      }
+
+      // All rows will have this applied
+      // It will end up just being the middle row
+      > div {
+        height: 33%;
+
+        // Middle Middle (center)
+        > div {
+          margin: 0;
+          padding: 0;
+          height: 100%;
+          padding: 6px;
+        }
+
+        // Default tile
+        > div .tile {
+          height: 100%;
+          width: 100%;
+          margin: 0;
+          padding: 0;
+
+          -webkit-border-radius: @tile-corner-radius;
+          border-radius: @tile-corner-radius;
+
+        }
+        // Middle Left
+        > :first-child .tile {
+          -webkit-border-radius: 0 @tile-corner-radius @tile-corner-radius 0;
+          border-radius: 0 @tile-corner-radius @tile-corner-radius 0;
+        }
+        // Middle Right
+        > :last-child .tile {
+          -webkit-border-radius: @tile-corner-radius 0 0 @tile-corner-radius;
+          border-radius: @tile-corner-radius 0 0 @tile-corner-radius;
+        }
+      }
+      // End of (middle) row
+
+      // First (top) row
+      > :first-child {
+        // Top Middle
+        > div .tile {
+          -webkit-border-radius: 0 0 @tile-corner-radius @tile-corner-radius;
+          border-radius: 0 0 @tile-corner-radius @tile-corner-radius;
+        }
+        // Top Left
+        > :first-child .tile {
+          -webkit-border-radius: @tile-corner-radius 0 @tile-corner-radius 0;
+          border-radius: @tile-corner-radius 0 @tile-corner-radius 0;
+        }
+        // Top Right
+        > :last-child .tile {
+          -webkit-border-radius: 0 @tile-corner-radius 0 @tile-corner-radius;
+          border-radius: 0 @tile-corner-radius 0 @tile-corner-radius;
+        }
+      }
+      // End of (top) row
+
+      // Last (bottom) row
+      > :last-child {
+        // Bottom Middle
+        > div .tile {
+          -webkit-border-radius: @tile-corner-radius @tile-corner-radius 0 0;
+          border-radius: @tile-corner-radius @tile-corner-radius 0 0;
+        }
+        // Bottom Left
+        > :first-child .tile {
+          -webkit-border-radius: 0 @tile-corner-radius 0 @tile-corner-radius;
+          border-radius: 0 @tile-corner-radius 0 @tile-corner-radius;
+        }
+        // Bottom Right
+        > :last-child .tile {
+          -webkit-border-radius: @tile-corner-radius 0 @tile-corner-radius 0;
+          border-radius: @tile-corner-radius 0 @tile-corner-radius 0;
+        }
+      }
+      // End of Last (bottom) row
+
+      @media screen and (max-width: @screen-sm-min) {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        top: 0;
+        left: 0;
+
+        -moz-transform: translateX(0) translateY(0);
+        -webkit-transform: translateX(0) translateY(0);
+        -o-transform: translateX(0) translateY(0);
+        -ms-transform:  translateX(0) translateY(0);
+        transform:  translateX(0) translateY(0);
+      }
+
+    }
+
+  }
+  @media screen and (max-width: @screen-sm-min) {
+    height: 60%;
+    margin: 0;
+    padding: 0;
+    // padding-left: 10px;
+    padding-right: 10px;
+  }
+  // @media (max-device-width: @screen-xs-min) and (orientation: landscape) {
+  //   height: 50%;
+  //   top: 0%;
+  //   transform:      translateY(0);
+  // }
+}

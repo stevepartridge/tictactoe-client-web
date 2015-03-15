@@ -1,0 +1,32 @@
+{
+  "name": "TicTacToe",
+  "version": "0.0.1",
+  "authors": [
+     "Steve Partridge"
+  ],
+  "description": "TicTacToe - A Game.",
+  "main": "index.html",
+  "keywords": [
+    "tic",
+    "tac",
+    "toe"
+  ],
+  "license": "https://spdx.org/licenses/WTFPL#licenseText",
+  "homepage": "http://tictactoe.stevepartridge.co",
+  "private": false,
+  "ignore": [
+    "**/.*"
+  ],
+  "dependencies": {
+    "angular": "^1.4.0",
+    "angular-touch": "^1.4.0",
+    "angular-route": "1.2.27",
+    "angular-bootstrap": "0.12.0",
+    "angular-cookies": "^1.4.0",
+    "angular-animate": "^1.4.0",
+    "angular-ui-utils": "0.1.1",
+    "ngstorage": "0.3.0",
+    "bootstrap": "~3.3.2",
+    "fontawesome": "~4.3.0"
+  }
+}

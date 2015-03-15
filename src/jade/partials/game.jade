@@ -1,0 +1,7 @@
+.row(ng-controller="GameController")
+  include board
+  include players
+
+  #overlay(ng-show="game.status != 'active'")
+    include newgame
+    include gameover

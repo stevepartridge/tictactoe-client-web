@@ -1,0 +1,6 @@
+.DS_Store
+node_modules
+src/bower_components
+src/.bower-registry
+src/.bower-cache
+www

@@ -1,0 +1,45 @@
+.newgame(ng-show="game.status == 'pending'")
+  .container.questions
+    .row.questions
+      .col-lg-12
+        .row.welcome(ng-show="newGameStep == 'welcome'")
+          .col-lg-12
+            .row.question
+              .col-lg-12
+                | Greetings, How about a nice game of
+                s chess
+                br
+                strong Tic Tac Toe?
+            .row.answer
+              .col-lg-12.action
+                button.btn.btn-default(ng-click="createNewGame()") Heck yeah!
+
+        .row.player-name(ng-show="newGameStep == 'setname'")
+          .col-lg-12
+            .row
+              .col-lg-12
+                | What would you like your battle name to be?
+            br
+            br
+            input.form-control.input-lg(type="text" ng-model="player1.name")
+            br
+            button.btn.btn-default(ng-click="setPlayerName()") Declare Battle Name
+            br
+            button.btn.btn-link(ng-click="setPlayerName()") Use random minion name
+
+        .row.opponent(ng-show="newGameStep == 'opponent'")
+          .col-lg-12
+            .row
+              .col-lg-12.battle-name {{player1.name}}
+                br
+                span.vs vs
+            .row
+              .col-lg-12.against-question
+                | Who would you like to play against?
+          .row-fluid
+            .col-lg-4.col-md-4.col-sm-12
+              button.btn.btn-default.btn-block(ng-click="setOpponentType('joshua')") Joshua
+            .col-lg-4.col-md-4.col-sm-12
+              button.btn.btn-default.btn-block(ng-click="setOpponentType('minion')") A Minion
+            .col-lg-4.col-md-4.col-sm-12
+              button.btn.btn-default.btn-block(ng-click="setOpponentType('human')", disabled) Human
