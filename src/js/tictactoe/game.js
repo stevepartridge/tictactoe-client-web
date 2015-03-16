@@ -56,7 +56,7 @@ Game.prototype.board = function () {
 Game.prototype.addPlayer = function(player) {
 
   // Make sure this doesn't exceed the max players
-  if(this.players.length <= this.maxPlayers) {
+  if(this.players.length >= this.maxPlayers) {
     console.warn(
       'Unable to add player, ' +
       'it will exceed the maximum allotment of ' +
