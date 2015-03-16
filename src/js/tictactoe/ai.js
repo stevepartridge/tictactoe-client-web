@@ -15,7 +15,7 @@ function AI() {
 AI.prototype.nextBestForPiece = function(board, piece) {
 
   // Determine the opponent's piece
-  var oppPiece = piece === 'x' ? 'o' : 'x';
+  var opponentPiece = piece === 'x' ? 'o' : 'x';
 
   // Reference for the available positions
   var availablePositions = board.availablePositions();
@@ -41,7 +41,7 @@ AI.prototype.nextBestForPiece = function(board, piece) {
     b.setPosition(availablePositions[i], piece);
 
     // Grab the value determined by the negamax/pruning algorithm
-    var value = -this.negamax(b, oppPiece, totalAvailablePositions, -Infinity, Infinity);
+    var value = -this.negamax(b, opponentPiece, totalAvailablePositions, -Infinity, Infinity);
 
     // If the value is higher than the current best
     // then use it as the new best value
@@ -88,7 +88,7 @@ AI.prototype.negamax = function(board, piece, depth, alpha, beta) {
   var totalAvailablePositions = availablePositions.length;
 
   // Determine the opponent's piece
-  var oppPiece = piece === 'x' ? 'o' : 'x';
+  var opponentPiece = piece === 'x' ? 'o' : 'x';
 
   // Define the initial bestValue
   var bestValue = -Infinity;
@@ -106,7 +106,7 @@ AI.prototype.negamax = function(board, piece, depth, alpha, beta) {
     // Grab the value as it runs down the rabbit hole, or
     // tree rather to see if it is our golden ticket to the
     // chocolate factory.
-    var value = -this.negamax(b, oppPiece, depth - 1, -beta, -alpha);
+    var value = -this.negamax(b, opponentPiece, depth - 1, -beta, -alpha);
 
     // Use the JavaScript max method to return the greater value
     // storing it as the current best value
