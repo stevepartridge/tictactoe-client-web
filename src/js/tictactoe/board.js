@@ -113,13 +113,13 @@ Board.prototype.getPosition = function (pos) {
 // Helper method to grab all the remaining available
 // positions on the current board state
 Board.prototype.availablePositions = function () {
-  var arr = [];
+  var result = [];
   for (var i = 0; i < this.totalPositions; i++) {
     if (this.positions[i] === this.defaultPositionValue) {
-      arr.push(i);
+      result.push(i);
     }
   }
-  return arr;
+  return result;
 };
 
 // Helper method to grab all the positions a
