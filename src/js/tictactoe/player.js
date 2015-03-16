@@ -22,7 +22,7 @@ function Player(piece, name, human) {
     this.name = name;
   }
   // set if the player is human or not
-  this.human = (human);
+  this.human = human;
 }
 
 // Proper method to retrieve the players' piece
@@ -38,7 +38,7 @@ Player.prototype.setPiece = function(piece) {
 // Method to generate a random name
 Player.prototype.randomName = function() {
 
-  // Names courteous of a random reference from the Despicable Me minions
+  // Randomly picked names from the Despicable Me minions
   var names = [
       'Dave', 'Stuart', 'Jerry', 'Kevin', 'Tim', 'Mark', 'Phil', 'Darwin', 'Carl',
       'Lance', 'Tom', 'Donny', 'John', 'Bob', 'Paul', 'Frank', 'Larry', 'Jorge',
@@ -48,12 +48,12 @@ Player.prototype.randomName = function() {
   // Basic random number pull, nothing fancy.
   // Just need it to grab a random int for the names array
   function randomNum(min, max) {
-    return Math.round( Math.random() * (max - min) + min);
+    return Math.round(Math.random() * (max - min) + min);
   }
 
   // Return a random name based on the length of the
   // names array (less one because, well, it's an array)
-  return names[randomNum(0, names.length-1)];
+  return names[randomNum(0, names.length - 1)];
 };
 
 
