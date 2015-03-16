@@ -122,6 +122,7 @@ Board.prototype.availablePositions = function () {
   return result;
 };
 
+/****** DONT THINK THIS IS USED ANYWHERE and the comment doesn't seem to make sense *****/
 // Helper method to grab all the positions a
 // piece is currently populating
 Board.prototype.getPositionsByPiece = function (piece) {
@@ -148,7 +149,7 @@ Board.prototype.isGameOver = function() {
   // Use the isFull method to determine if
   // the board is the polar opposite of empty
   if(this.isFull()) {
-    this.winner = 'tie';
+    this.winner = 'tie';   // <******* this feels a bit weird, why do it twice? null could be more semantically correct here
     this.tie = true;
     return true;
   }
@@ -180,6 +181,7 @@ Board.prototype.hasWinner = function () {
   // Reference to the total count of winning combinations
   var totalWinningCombinations = this.winningCombinations.length;
 
+  /******* clean up signle letter variables other than `i`, use meaninful names like `pieceIndex` ******/
   // Loop through the pieces
   for (var p = 0; p < totalPieces; p++) {
 
