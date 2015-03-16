@@ -6,8 +6,7 @@ var modules = [
   'ngAnimate',
   'ngStorage',
   'ngCookies',
-  'ui.bootstrap',
-  'bd.sockjs'
+  'ui.bootstrap'
 ];
 
 var TicTacToeApp = angular.module('tictactoe', modules);
