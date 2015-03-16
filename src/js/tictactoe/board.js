@@ -136,7 +136,6 @@ Board.prototype.isGameOver = function() {
   // Use the isFull method to determine if
   // the board is the polar opposite of empty
   if(this.isFull()) {
-    this.winner = 'tie';   // <******* this feels a bit weird, why do it twice? null could be more semantically correct here
     this.tie = true;
     return true;
   }
