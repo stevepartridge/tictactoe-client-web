@@ -130,7 +130,7 @@ AI.prototype.negamax = function(board, piece, depth, alpha, beta) {
 };
 
 
-// Potential furthur optimization of sorting the list
+// Potential further optimization of sorting the list
 // of possible positions to be searched first over the
 // known lesser positions (work in progress)
 // AI.prototype.optimal = function(positions) {
