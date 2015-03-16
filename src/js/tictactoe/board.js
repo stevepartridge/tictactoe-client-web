@@ -122,19 +122,6 @@ Board.prototype.availablePositions = function () {
   return result;
 };
 
-/****** DONT THINK THIS IS USED ANYWHERE and the comment doesn't seem to make sense *****/
-// Helper method to grab all the positions a
-// piece is currently populating
-Board.prototype.getPositionsByPiece = function (piece) {
-  var result = [];
-  for (var i = 0; i < this.totalPositions; i++) {
-    if (this.positions[i] === piece) {
-      result.push(i);
-    }
-  }
-  return result;
-};
-
 // Boolean method to determine if the game
 // is over and set the board winner and
 // if it is a tie (boolean) or not
