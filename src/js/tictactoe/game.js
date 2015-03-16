@@ -91,19 +91,6 @@ Game.prototype.playerNameExists = function(name) {
   return false;
 };
 
-// Helper method to grab a player by their piece
-Game.prototype.getPlayerByPiece = function(piece) {
-  var totalPlayers = this.players.length;
-  // Loop through the players
-  for(var i = 0; i < totalPlayers; i++) {
-    // Once the piece matches up to a player
-    if(this.players[i].piece === piece) {
-      // return that player
-      return this.players[i];
-    }
-  }
-};
-
 // Method to invoke the next turn
 Game.prototype.nextTurn = function() {
 
