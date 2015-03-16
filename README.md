@@ -27,6 +27,7 @@ bower install
 ``` 
 gulp
 ```
+It should now be running at [localhost:8000](http://locahost:8000)
 #### Build the production version
 ```
 gulp build
