@@ -122,19 +122,6 @@ Board.prototype.availablePositions = function () {
   return result;
 };
 
-/****** DONT THINK THIS IS USED ANYWHERE and the comment doesn't seem to make sense *****/
-// Helper method to grab all the positions a
-// piece is currently populating
-Board.prototype.getPositionsByPiece = function (piece) {
-  var result = [];
-  for (var i = 0; i < this.totalPositions; i++) {
-    if (this.positions[i] === piece) {
-      result.push(i);
-    }
-  }
-  return result;
-};
-
 // Boolean method to determine if the game
 // is over and set the board winner and
 // if it is a tie (boolean) or not
@@ -149,7 +136,6 @@ Board.prototype.isGameOver = function() {
   // Use the isFull method to determine if
   // the board is the polar opposite of empty
   if(this.isFull()) {
-    this.winner = 'tie';   // <******* this feels a bit weird, why do it twice? null could be more semantically correct here
     this.tie = true;
     return true;
   }
@@ -181,31 +167,30 @@ Board.prototype.hasWinner = function () {
   // Reference to the total count of winning combinations
   var totalWinningCombinations = this.winningCombinations.length;
 
-  /******* clean up signle letter variables other than `i`, use meaninful names like `pieceIndex` ******/
   // Loop through the pieces
-  for (var p = 0; p < totalPieces; p++) {
+  for (var pieceIndex = 0; pieceIndex < totalPieces; pieceIndex++) {
 
     // Reference the piece
-    var piece = this.pieces[p];
+    var piece = this.pieces[pieceIndex];
 
     // Using that piece, loop through the winning
     // combinations and see if it is a glorious victor
     // or just a sad and pathetic loser of Tic Tac Toe
-    for (var i = 0; i < totalWinningCombinations; i++) {
+    for (var comboIndex = 0; comboIndex < totalWinningCombinations; comboIndex++) {
 
       // Current combination reference
-      var combo = this.winningCombinations[i];
+      var combo = this.winningCombinations[comboIndex];
 
       // Reference to total count of combinations
       var totalComboPositions = combo.length;
 
       // Loop through the positions of the combination
-      for (var cp = 0; cp < totalComboPositions; cp++) {
+      for (var comboPositionIndex = 0; comboPositionIndex < totalComboPositions; comboPositionIndex++) {
 
         // To see if the piece is populating that current
         // possition, in this case check to see if it is not
         // populating it, because if so...
-        if (this.positions[combo[cp]] !== piece) {
+        if (this.positions[combo[comboPositionIndex]] !== piece) {
           // we can just break out of the loop and save
           // some futher operations
           break;
@@ -214,7 +199,7 @@ Board.prototype.hasWinner = function () {
           // evaluated is the last of the combination
           // if so, this means the piece populates all the
           // positions and...
-          if ((cp + 1) >= totalComboPositions) {
+          if ((comboPositionIndex + 1) >= totalComboPositions) {
             // this piece can be returned
             return piece;
           }

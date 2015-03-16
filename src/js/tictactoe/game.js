@@ -7,12 +7,7 @@ function Game() {
   // Define the max players
   // changing this will most likely
   // break the game in it's current state
-  this.maxPlayers = 2;    // <****** NOT USED
-
-  // Used for initial testing, should remove once    <****** DO REMOVE THEN
-  // actual tests are written
-  // this.addPlayer(new Player('x')); // For testing
-  // this.addPlayer(new Player('o')); // For testing
+  this.maxPlayers = 2;
 
   // Establish the new game
   this.reset();
@@ -30,7 +25,7 @@ Game.prototype.reset = function() {
   // Reference to the players
   this.players = [];
 
-  // Winner boolean     <****** these type of comments don't really add value IMHO... overly commenting can also be bad ;)
+  // Used in hasWinner() for more info
   this.winner = false;
 
   // Tie/Draw boolean
@@ -59,6 +54,16 @@ Game.prototype.board = function () {
 // should only be 2, but why not support more for a
 // future thumderdome style version of tic-tac-toe
 Game.prototype.addPlayer = function(player) {
+
+  // Make sure this doesn't exceed the max players
+  if(this.players.length >= this.maxPlayers) {
+    console.warn(
+      'Unable to add player, ' +
+      'it will exceed the maximum allotment of ' +
+      this.maxPlayers + ' players.'
+      );
+    return;
+  }
 
   // On the off chance that the randomly selected
   // names happen to be identical, make them a Junior
