@@ -2,7 +2,7 @@ var config = {
   app: {
     name: 'App Name'
   },
-  dest: 'www',
+  dest: '.www',
 
   src: 'src',
 
@@ -256,7 +256,7 @@ gulp.task('styles:app', function () {
 });
 
 gulp.task('views:app', function () {
-  console.log('views:app  --------> ', build.scripts.app.main);
+
   return gulp.src(source.views.app.files)
 
     .pipe(isProduction ?
@@ -376,6 +376,7 @@ gulp.task('watch', function () {
 gulp.task('build', ['prod', 'prod:default']);
 gulp.task('prod', function () {
   isProduction = true;
+  config.dest = config.dest.replace('.', '');
 });
 
 gulp.task('prod:default', gulpsync.sync([

@@ -6,13 +6,14 @@ var modules = [
   'ngAnimate',
   'ngStorage',
   'ngCookies',
-  'ui.bootstrap'
+  'ui.bootstrap',
+  'bd.sockjs'
 ];
 
 var TicTacToeApp = angular.module('tictactoe', modules);
 
-TicTacToeApp.run(function($log) {
+TicTacToeApp.run(['$log', function($log) {
 
   $log.log('Running Tic Tac Toe App');
 
-});
+}]);

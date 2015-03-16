@@ -22,6 +22,7 @@ TicTacToeApp.controller('BoardController', [
 
     $scope.placePiece = function (pos) {
       if($scope.game.board.canPopulate(pos)) {
+        $scope.infoMessage = false;
 
         $scope.cheatPosition = -1;
         $scope.game.board.setPosition(pos, $scope.game.activePlayer.piece);

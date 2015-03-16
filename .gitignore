@@ -4,3 +4,4 @@ src/bower_components
 src/.bower-registry
 src/.bower-cache
 www
+.www

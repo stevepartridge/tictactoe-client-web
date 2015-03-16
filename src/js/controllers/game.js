@@ -9,9 +9,12 @@ TicTacToeApp
   .controller('GameController', [
     '$rootScope',
     '$scope',
-    function ($rootScope, $scope) {
+    'Connect',
+    function ($rootScope, $scope, Connect) {
 
       $scope.connected = false;
+
+      $scope.infoMessage = false;
 
       $scope.game = new Game();
       $scope.player1 = new Player('x', '', true);
@@ -57,9 +60,7 @@ TicTacToeApp
       };
 
       $scope.cheat = function() {
-        // $rootScope.$apply(function(){
-          $scope.cheatPosition = $scope.game.nextBestPosition($scope.game.activePlayer.piece);
-        // });
+        $scope.cheatPosition = $scope.game.nextBestPosition($scope.game.activePlayer.piece);
       };
 
       $scope.playAgain = function() {
@@ -67,7 +68,16 @@ TicTacToeApp
         $scope.newGameStep = 'setname';
       };
 
-      // alert('boobs');
+
+      Connect.on('game.state', function(evt, data){
+        $scope.connected = true;
+        console.log('game.state', evt, data);
+      });
+
+      $scope.game.on('state', function(data){
+        console.log('game state', data);
+      });
+
       console.log('game controller');
 
     }

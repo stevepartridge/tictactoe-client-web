@@ -4,7 +4,10 @@
     .col-lg-12
       a(href="#", ng-click="cheat()") Cheat
       | &nbsp; {{cheatPosition}}
-
+  .row
+    .col-lg-12
+      span(ng-show="connected") Connected
+      span(ng-hide="connected") Not Connected
   .row.cont
     .col-lg-12
       ul.list-group.list

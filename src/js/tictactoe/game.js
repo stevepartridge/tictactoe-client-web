@@ -14,6 +14,9 @@ function Game() {
   // this.addPlayer(new Player('x')); // For testing
   // this.addPlayer(new Player('o')); // For testing
 
+  this.listeners = {};
+  this.events = {};
+
   // Establish the new game
   this.reset();
 }
@@ -185,4 +188,55 @@ Game.prototype.getWinner = function() {
 // user would like to phone a friend in skynet
 Game.prototype.nextBestPosition = function(piece) {
   return this.ai.nextBestForPiece(this.board, piece);
+};
+
+
+Game.prototype.addEventListener = function(evt, callback) {
+  if(!this.events[evt]) {
+    this.listeners[evt] = [];
+  }
+  this.listeners[evt].push(callback);
+};
+
+// Method to handle on[event] handling
+// used for socket data handling
+Game.prototype.on = function(name, callback) {
+  if(!this.events[name]) {
+    this.events[name] = [];
+  }
+  this.events[name].push(callback);
+};
+
+// Method to emit and event with relevent data
+Game.prototype.emit = function(name, data) {
+  this.notifyListeners({name: name, data: data});
+};
+
+// Method to notify listeners, both static and dynamic
+Game.prototype.notifyListeners = function(evt) {
+  if(evt.id) {
+    if(this.listeners[evt.id]) {
+      var listener = this.listeners[evt.id];
+      if(evt.error) {
+        if(listener.onError) {
+          listener.onError.call(undefined, evt.error);
+        }
+      } else {
+        if(listener.onSuccess) {
+          listener.callback.call(undefined, evt.data);
+        }
+      }
+
+      listener = null;
+      delete this.listeners[evt.id];
+    }
+  } else {
+    var callbacks = this.events[evt.name];
+    if(callbacks) {
+      var totalCallbacks = callbacks.length;
+      for(var i = 0; i < totalCallbacks; i++) {
+        callbacks[i].call(undefined, evt.data);
+      }
+    }
+  }
 };
