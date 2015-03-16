@@ -22,6 +22,7 @@ _*_ if you would rather not install it globally you can call the relative bin fi
 npm install
 bower install
 ```
+_*_ if you're asked about which version of Angular to use, pick ≥1.4.0
 
 - Now you should be able to spin it up
 ``` 
