@@ -7,9 +7,9 @@ function Game() {
   // Define the max players
   // changing this will most likely
   // break the game in it's current state
-  this.maxPlayers = 2;
+  this.maxPlayers = 2;    // <****** NOT USED
 
-  // Used for initial testing, should remove once
+  // Used for initial testing, should remove once    <****** DO REMOVE THEN
   // actual tests are written
   // this.addPlayer(new Player('x')); // For testing
   // this.addPlayer(new Player('o')); // For testing
@@ -30,7 +30,7 @@ Game.prototype.reset = function() {
   // Reference to the players
   this.players = [];
 
-  // Winner boolean
+  // Winner boolean     <****** these type of comments don't really add value IMHO... overly commenting can also be bad ;)
   this.winner = false;
 
   // Tie/Draw boolean
@@ -78,7 +78,7 @@ Game.prototype.addPlayer = function(player) {
 Game.prototype.playerNameExists = function(name) {
   var totalPlayers = this.players.length;
   // Loop through the current players
-  for(var i=0; i < totalPlayers; i++) {
+  for(var i = 0; i < totalPlayers; i++) {
     if(this.players[i].name === name) {
       return true;
     }
@@ -90,7 +90,7 @@ Game.prototype.playerNameExists = function(name) {
 Game.prototype.getPlayerByPiece = function(piece) {
   var totalPlayers = this.players.length;
   // Loop through the players
-  for(var i=0; i < totalPlayers; i++) {
+  for(var i = 0; i < totalPlayers; i++) {
     // Once the piece matches up to a player
     if(this.players[i].piece === piece) {
       // return that player
