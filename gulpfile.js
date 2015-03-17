@@ -2,7 +2,7 @@ var config = {
   app: {
     name: 'App Name'
   },
-  dest: '.www',
+  dest: 'www',
 
   src: 'src',
 
@@ -376,7 +376,8 @@ gulp.task('watch', function () {
 gulp.task('build', ['prod', 'prod:default']);
 gulp.task('prod', function () {
   isProduction = true;
-  config.dest = config.dest.replace('.', '');
+  // config.dest = config.dest.replace('.', '');
+  // console.log('config.dest', config.dest);
 });
 
 gulp.task('prod:default', gulpsync.sync([

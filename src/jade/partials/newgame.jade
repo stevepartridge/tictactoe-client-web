@@ -12,7 +12,7 @@
                 strong Tic Tac Toe?
             .row.answer
               .col-lg-12.action
-                button.btn.btn-default(ng-click="createNewGame()") Heck yeah!
+                button.btn.btn-default(ng-click="createNewGame()") Sure, Let's Battle!
 
         .row.player-name(ng-show="newGameStep == 'setname'")
           .col-lg-12
@@ -21,7 +21,7 @@
                 | What would you like your battle name to be?
             br
             br
-            input.form-control.input-lg(type="text" ng-model="player1.name")
+            input.form-control.input-lg(type="text" ng-model="player.name")
             br
             button.btn.btn-default(ng-click="setPlayerName()") Declare Battle Name
             br
@@ -30,16 +30,49 @@
         .row.opponent(ng-show="newGameStep == 'opponent'")
           .col-lg-12
             .row
-              .col-lg-12.battle-name {{player1.name}}
+              .col-lg-12.battle-name {{player.name}}
                 br
                 span.vs vs
             .row
               .col-lg-12.against-question
                 | Who would you like to play against?
-          .row-fluid
-            .col-lg-4.col-md-4.col-sm-12
+          .row-fluid.options
+            .col-lg-4.col-md-4.col-sm-4.col-xs-6
               button.btn.btn-default.btn-block(ng-click="setOpponentType('joshua')") Joshua
-            .col-lg-4.col-md-4.col-sm-12
+            .col-lg-4.col-md-4.col-sm-4.col-xs-6
               button.btn.btn-default.btn-block(ng-click="setOpponentType('minion')") A Minion
-            .col-lg-4.col-md-4.col-sm-12
-              button.btn.btn-default.btn-block(ng-click="setOpponentType('human')", disabled) Human
+            .col-lg-4.col-md-4.col-sm-4.col-xs-12
+              button.btn.btn-default.btn-block(ng-click="setOpponentType('human')", ng-disabled="connected == false") Human
+
+        .row.connected-players(ng-show="newGameStep == 'selecthuman'")
+          .col-lg-6.col-sm-6.col-xs-12.controls
+            a.btn.btn-default(ng-click="newGameStep = 'opponent'")
+              i.fa.fa-arrow-left
+              | &nbsp; Too Scary, Go Back
+
+          .col-lg-6.col-sm-6.col-xs-12.available-players
+            .list-group.players-list(ng-show="availablePlayers.length > 0")
+              a.list-group-item(href="#", ng-repeat="human in availablePlayers", ng-click="startGameWithPlayer(human.connection_id)")
+                h4 {{human.name}}
+                  small {{human.connected_at}}
+                p.connected-id
+                  small {{human.connection_id}}
+            .row.no-players(ng-hide="availablePlayers.length > 0", align="center")
+              .col-sm-12 Waiting for another player to connect...
+
+        .row.pick-piece(ng-show="newGameStep == 'pickpiece'")
+          .col-lg-12.col-sm-12.col-xs-12
+            .row
+              .col-lg-12.col-sm-12.col-xs-12 Choose your weapon
+            .row.options
+              .col-lg-6.col-sm-6.col-xs-6
+                a.btn.btn-default.x(href="#", ng-click="pickPiece('x')")
+                  i.fa.fa-3x.fa-close
+              .col-lg-6.col-sm-6.col-xs-6
+                 a.btn.btn-default.o(href="#", ng-click="pickPiece('o')")
+                  i.fa.fa-3x.fa-circle-o
+
+        .row.pick-piece(ng-show="newGameStep == 'waitingforresponse'")
+          .col-lg-12.col-sm-12.col-xs-12
+            .row
+              .col-lg-12.col-sm-12.col-xs-12 Waiting for response...

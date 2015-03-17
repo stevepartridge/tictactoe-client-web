@@ -45,7 +45,7 @@
         transition: all 0.4s linear;
 
         .square {
-          color: #3fb0a9;
+          color: #919d9c;
           height: 100%;
           // line-height: 100%;
           font-size: 6em;
@@ -56,6 +56,13 @@
             -webkit-transition:0.4s linear all;
             transition:0.4s linear all;
             opacity: 1;
+          }
+
+          .x {
+            color: #3fb0a9;
+          }
+          .o {
+            color: #c5892b;
           }
 
           .x.ng-hide, .o.ng-hide {
@@ -181,6 +188,51 @@
     }
 
   }
+
+  .message {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+
+    -moz-transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    -ms-transform:  translateX(-50%);
+    transform:  translateX(-50%);
+
+    opacity: 1;
+
+    width: auto;
+    height: auto;
+
+    padding-left: 25px;
+    padding-right: 25px;
+
+    background-color: #ccc;
+
+    -webkit-border-radius: @tile-corner-radius;
+    border-radius: @tile-corner-radius;
+
+    -webkit-transition: all 0.4s linear;
+    -moz-transition: all 0.4s linear;
+    -ms-transition: all 0.4s linear;
+    -o-transition: all 0.4s linear;
+    transition: all 0.4s linear;
+
+    -webkit-box-shadow: 0 0 7px 0 #222;
+    box-shadow: 0 0 7px 0 #242424;
+
+    z-index: 500;
+
+    .msg {
+      padding: 10px;
+    }
+  }
+
+  .message.ng-hide{
+    opacity: 0;
+  }
+
   @media screen and (max-width: @screen-sm-min) {
     height: 60%;
     margin: 0;

@@ -1,6 +1,6 @@
 #board.col-lg-9.col-md-9.col-sm-8.col-xs-12(ng-controller="BoardController", align="center")
   //- .row {{hoveredPosition}} {{game.activePlayer.piece}}
-  #message(ng-show="infoMessage")
+  .message(ng-show="infoMessage")
     .msg {{infoMessage}}
   .row.tiles-cont(align="center")
     .tiles.col-lg-12

@@ -2,6 +2,8 @@
   include board
   include players
 
-  #overlay(ng-show="game.status != 'active'")
+  #overlay(ng-show="game.status != 'active' || overlayMessage")
     include newgame
     include gameover
+    include overlay_message
+  include game_request

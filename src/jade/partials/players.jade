@@ -1,20 +1,29 @@
 #players.col-lg-3.col-md-3.col-sm-4.col-xs-12
-  .row {{game.activePlayer.name}} with {{game.activePlayer.piece}} {{game.status}}
-  .row
+  //- .row {{game.activePlayer.name}} with {{game.activePlayer.piece}} {{game.status}}
+  //- .row
+    //- .col-lg-12
+      //- button.btn.btn-default.btn-block Cheat
+      //- a(href="#", ng-click="cheat()") Cheat
+      //- | &nbsp; {{cheatPosition}}
+  .row.connected(ng-show="connected")
     .col-lg-12
-      a(href="#", ng-click="cheat()") Cheat
-      | &nbsp; {{cheatPosition}}
+      .pull-right
+        | Connected &nbsp;
+        i.fa.fa-circle
   .row
-    .col-lg-12
-      span(ng-show="connected") Connected
-      span(ng-hide="connected") Not Connected
+    .col-lg-12 Players
   .row.cont
     .col-lg-12
-      ul.list-group.list
-        li.list-group-item(ng-repeat="player in game.players") {{player.name}}
-          br
-          small playing as {{player.piece}}
-          span(ng-show="player.human") HUMAN
-          span(ng-show="game.activePlayer.piece == player.piece") *
-          span(ng-show="game.winner.piece == player.piece") WON
+      .list-group.list
+        .list-group-item(ng-repeat="player in game.players", ng-class="{'current': (game.activePlayer.piece == player.piece), 'current-x': game.activePlayer.piece == 'x' && player.piece == 'x', 'current-o': game.activePlayer.piece == 'o' && player.piece == 'o'}")
+
+          | {{player.name}}
+          .x(ng-show="player.piece == 'x'")
+            i.fa.fa-2x.fa-close
+          .o(ng-show="player.piece == 'o'")
+            i.fa.fa-2x.fa-circle-o
+          //- small playing as {{player.piece}}
+          //- span(ng-show="player.human") HUMAN
+          //- span(ng-show="game.activePlayer.piece == player.piece") *
+          //- span(ng-show="game.winner.piece == player.piece") WON
 #about

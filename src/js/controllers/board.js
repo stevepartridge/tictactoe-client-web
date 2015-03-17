@@ -6,9 +6,10 @@
  =========================================================*/
 
 TicTacToeApp.controller('BoardController', [
+  '$rootScope',
   '$scope',
   '$timeout',
-  function ($scope, $timeout) {
+  function ($rootScope, $scope, $timeout) {
 
     // Only for UI board creation
     $scope.rows = [
@@ -21,6 +22,9 @@ TicTacToeApp.controller('BoardController', [
     $scope.canPlaceOnHoveredPosition = false;
 
     $scope.placePiece = function (pos) {
+      if($scope.game.activePlayer.piece !== $scope.player.piece) {
+        return;
+      }
       if($scope.game.board.canPopulate(pos)) {
         $scope.infoMessage = false;
 
@@ -31,6 +35,10 @@ TicTacToeApp.controller('BoardController', [
         // like the AI is thinking
         $timeout(function(){
           $scope.game.nextTurn();
+          if($scope.game.activePlayer.human) {
+            console.log('active player is human');
+            $scope.sendGameState();
+          }
         }, 300);
       } else {
         console.log('Already placed.');
@@ -38,12 +46,29 @@ TicTacToeApp.controller('BoardController', [
     };
 
     $scope.onMouseOverPosition = function(pos) {
-      $scope.hoveredPosition = pos;
+      if($scope.game.activePlayer.piece === $scope.player.piece) {
+        $scope.hoveredPosition = pos;
+      }
     };
 
     $scope.onMouseOutPosition = function() {
       $scope.hoveredPosition = -1;
     };
+
+    $scope.$watch('game.activePlayer', function(oldValue, newValue) {
+      console.log('game.activePlayer', oldValue, newValue);
+      if($scope.game.activePlayer) {
+        // console.log(newValue.piece, $scope.player.piece);
+        if($scope.game.activePlayer.piece !== $scope.player.piece) {
+          // if($rootScope.$digest)
+          // $rootScope.$apply(function(){
+            $scope.infoMessage = 'Waiting for ' + $scope.opponent.name + ' to move...';
+          // });
+        } else {
+          $scope.infoMessage = '';
+        }
+      }
+    });
 
     console.log('board controller');
 

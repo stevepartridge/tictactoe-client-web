@@ -8,6 +8,5 @@
   "src/bower_components/angular-cookies/angular-cookies.js",
   "src/bower_components/angular-bootstrap/ui-bootstrap.js",
 
-  "src/bower_components/sockjs-client/dist/sockjs.js",
-  "src/vendor/angular-sockjs/socket.js"
+  "src/bower_components/sockjs-client/dist/sockjs.js"
 ]

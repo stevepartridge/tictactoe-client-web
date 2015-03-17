@@ -2,14 +2,106 @@
   background-color: #666;
   height: 100%;
 
+  > div > div {
+    text-transform: uppercase;
+    color: #bbb;
+    font-size: 0.8em;
+  }
+
+  .connected {
+    padding: 10px;
+    text-transform: none;
+    > div > div > i {
+      color: #0ff;
+    }
+  }
+
   .cont {
      height: 100%;
     // width: 100%;
     -webkit-box-shadow:inset 0 0 2px 0px #000000;
     box-shadow:inset 0 0 2px 0px #000000;
 
+    > div {
+      margin: 0;
+      padding: 0;
+    }
+
     .list {
       height: auto;
+
+      > div {
+        -webkit-transition: all 0.4s linear;
+        -moz-transition: all 0.4s linear;
+        -ms-transition: all 0.4s linear;
+        -o-transition: all 0.4s linear;
+        transition: all 0.4s linear;
+
+        padding-top: 15px;
+        padding-bottom: 15px;
+
+
+
+        > div {
+          -webkit-transition: all 0.4s linear;
+          -moz-transition: all 0.4s linear;
+          -ms-transition: all 0.4s linear;
+          -o-transition: all 0.4s linear;
+          transition: all 0.4s linear;
+
+          > i {
+            // padding: 0;
+            // margin: 0;
+          }
+
+          padding-top: 0px;
+          padding-bottom: 10px;
+          position: absolute;
+          right: 0;
+          top: 25%;
+        }
+
+
+        .x, .o {
+          position: absolute;
+          display: none;
+          top: 10px;
+          right: 10px;
+        }
+
+
+
+      }
+
+      :first-child{
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+      }
+
+      :last-child{
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+      .current {
+        // background-color: #ff0;
+        // border-left: solid 6px #f00;
+        .x {
+          display: block;
+          color: #3fb0a9;
+        }
+        .o {
+          display: block;
+          color: #c5892b;
+        }
+      }
+      .current-x {
+        // background-color: #f0f;
+        border-left: solid 5px #3fb0a9;
+      }
+      .current-o {
+        // background-color: #0ff;
+        border-left: solid 5px #c5892b;
+      }
     }
   }
 }
