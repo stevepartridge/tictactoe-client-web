@@ -2,11 +2,12 @@
 
   h3 Game Over
   h5
-    span(ng-show="game.winner.piece == player.piece && !game.tie")
-      | Congrats {{game.winner.name}}, you've won!
-    span(ng-hide="game.winner.piece != player.piece && !game.tie")
-      | You have lost to the mighty {{game.winner.name}}
-    span(ng-show="game.tie") Is A Tie!
+    span(ng-hide="game.tie")
+      span.won(ng-show="game.winner.piece == player.piece")
+        | Congrats {{game.winner.name}}, you've won!
+      span.lost(ng-show="game.winner.piece != player.piece")
+        | You have lost to the brilliant mind of {{game.winner.name}}.
+    span.tied(ng-show="game.tie") You have fallen to mediocrity. You are awarded a tie.  Which is the equivalent of a participation ribbon.
   br
   br
   a(href="#", ng-click="playAgain()") Play Again?
