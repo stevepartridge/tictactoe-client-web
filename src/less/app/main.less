@@ -28,27 +28,3 @@ html,body {
     /* ensure visibility during the transition */
     display: block !important; /* yes, important */
 }
-
-#message {
-  position: absolute;
-  top: 5%;
-  left: 50%;
-
-  -moz-transform: translateX(-50%);
-  -webkit-transform: translateX(-50%);
-  -o-transform: translateX(-50%);
-  -ms-transform:  translateX(-50%);
-  transform:  translateX(-50%);
-
-  width: 450px;
-  height: auto;
-
-  background-color: #ccc;
-
-  -webkit-border-radius: @tile-corner-radius;
-          border-radius: @tile-corner-radius;
-
-  .msg {
-    padding: 10px;
-  }
-}

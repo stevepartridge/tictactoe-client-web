@@ -27,6 +27,7 @@
     "angular-ui-utils": "0.1.1",
     "ngstorage": "0.3.0",
     "bootstrap": "~3.3.2",
-    "fontawesome": "~4.3.0"
+    "fontawesome": "~4.3.0",
+    "sockjs-client": "~0.3.4"
   }
 }

@@ -11,8 +11,8 @@ var modules = [
 
 var TicTacToeApp = angular.module('tictactoe', modules);
 
-TicTacToeApp.run(function($log) {
+TicTacToeApp.run(['$log', function($log) {
 
   $log.log('Running Tic Tac Toe App');
 
-});
+}]);

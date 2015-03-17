@@ -1,12 +1,12 @@
 #board.col-lg-9.col-md-9.col-sm-8.col-xs-12(ng-controller="BoardController", align="center")
   //- .row {{hoveredPosition}} {{game.activePlayer.piece}}
-  #message
-    .msg Message Here
+  .message(ng-show="infoMessage")
+    .msg {{infoMessage}}
   .row.tiles-cont(align="center")
     .tiles.col-lg-12
       .row-fluid(ng-repeat="(i, row) in rows")
-        .col-md-4.col-xs-4(ng-repeat="pos in rows[i]")
-          .tile(ng-click="placePiece(pos)", ng-touch="placePiece(pos)", ng-mouseover="onMouseOverPosition(pos)", ng-mouseleave="onMouseOutPosition(pos)")
+        .col-md-4.col-xs-4(ng-repeat="pos in rows[i]", ng-click="placePiece(pos)", ng-touch="placePiece(pos)")
+          .tile(ng-mouseover="onMouseOverPosition(pos)", ng-mouseleave="onMouseOutPosition(pos)")
             span.square
               i.fa.fa-close.x(ng-show="(game.activePlayer.piece == 'x' && game.board.canPopulate(pos) && hoveredPosition == pos) || game.board.getPosition(pos) == 'x'")
               i.fa.fa-circle-o.o(ng-show="(game.activePlayer.piece == 'o' && game.board.canPopulate(pos) && hoveredPosition == pos) || game.board.getPosition(pos) == 'o'")

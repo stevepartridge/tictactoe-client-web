@@ -1,0 +1,15 @@
+#game-request(ng-show="gameRequest.id")
+  .container-fluid(align="center", ng-show="gameRequest.id")
+    .row-fluid(align="center")
+      .col-lg-6.col-sm-6.col-xs-12.request-from
+        span.name {{gameRequest.from.name}}
+        br
+        span.message has challenged you to a duel
+      .col-lg-6.col-sm-6.col-xs-12.options(align="center")
+        .row
+          .col-lg-6.col-xs-12.accept(align="center")
+            button.btn.btn-block.btn-info(ng-click="acceptGameRequest()") Accept Challenge
+        .row
+          .col-lg-6.col-xs-12.decline(align="center")
+            button.btn.btn-block.btn-default(ng-click="declineGameRequest()") Decline
+

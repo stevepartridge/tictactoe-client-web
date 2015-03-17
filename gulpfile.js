@@ -256,7 +256,7 @@ gulp.task('styles:app', function () {
 });
 
 gulp.task('views:app', function () {
-  console.log('views:app  --------> ', build.scripts.app.main);
+
   return gulp.src(source.views.app.files)
 
     .pipe(isProduction ?
@@ -376,6 +376,8 @@ gulp.task('watch', function () {
 gulp.task('build', ['prod', 'prod:default']);
 gulp.task('prod', function () {
   isProduction = true;
+  // config.dest = config.dest.replace('.', '');
+  // console.log('config.dest', config.dest);
 });
 
 gulp.task('prod:default', gulpsync.sync([
