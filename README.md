@@ -33,3 +33,6 @@ It should now be running at [localhost:8000](http://locahost:8000)
 ```
 gulp build
 ```
+
+### Live Version
+A live version can be found at [tictactoe.stevepartridge.me](http://tictactoe.stevepartridge.me)
